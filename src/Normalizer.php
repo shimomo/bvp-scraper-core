@@ -33,11 +33,11 @@ final class Normalizer
         }
 
         if (is_numeric($data) && str_contains($data, '.')) {
-            return Converter::float($data);
+            return Converter::convertToFloat($data);
         }
 
         if (is_numeric($data) && !str_contains($data, '.')) {
-            return Converter::int($data);
+            return Converter::convertToInt($data);
         }
 
         if (is_array($data)) {
@@ -49,7 +49,7 @@ final class Normalizer
             self::convertArrayKeysToCamelCase($options)
         );
 
-        $data = Converter::string($data);
+        $data = Converter::convertToString($data);
 
         $data = self::normalizeSpaces($data, $options);
         $data = self::normalizeNumbers($data, $options);
