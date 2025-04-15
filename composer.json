@@ -1,15 +1,24 @@
 {
+    "$schema": "https://getcomposer.org/schema.json",
     "name": "bvp/scraper-core",
     "description": "The BVP Scraper Core package for Boatrace.",
-    "keywords": ["library", "boatrace", "scraper"],
+    "keywords": [
+        "boatrace",
+        "library",
+        "scraper"
+    ],
     "license": "MIT",
     "type": "library",
     "authors": [
         {
             "name": "shimomo",
-            "email": "developer@shimomo.net"
+            "email": "bvp@shimomo.net"
         }
     ],
+    "support": {
+        "issues": "https://github.com/shimomo/bvp-scraper-core/issues",
+        "source": "https://github.com/shimomo/bvp-scraper-core"
+    },
     "require": {
         "php": "^8.2",
         "bvp/converter": "^4.0",
