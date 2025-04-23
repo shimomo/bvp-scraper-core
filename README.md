@@ -1,10 +1,10 @@
 # BVP Scraper Core
 
 [![Build Status](https://github.com/shimomo/bvp-scraper-core/workflows/Tests/badge.svg)](https://github.com/shimomo/bvp-scraper-core/actions?query=workflow%3Atests)
-[![codecov](https://codecov.io/gh/shimomo/bvp-scraper-core/graph/badge.svg?token=IZI1GDcqxw)](https://codecov.io/gh/shimomo/bvp-scraper-core)
+[![codecov](https://codecov.io/gh/shimomo/bvp-scraper-core/branch/5.x/graph/badge.svg?token=IZI1GDcqxw)](https://codecov.io/gh/shimomo/bvp-scraper-core)
 [![PHP Version Require](https://poser.pugx.org/bvp/scraper-core/require/php)](https://packagist.org/packages/bvp/scraper-core)
 [![Latest Stable Version](https://poser.pugx.org/bvp/scraper-core/v/stable)](https://packagist.org/packages/bvp/scraper-core)
-[![Latest Unstable Version](https://poser.pugx.org/bvp/scraper-core/v/unstable)](https://packagist.org/packages/bvp/scraper-core)
+[![Latest Unstable Version](https://poser.pugx.org/bvp/scraper-core/v/unstable)](https://packagist.org/packages/bvp/scraper-core#5.x-dev)
 [![License](https://poser.pugx.org/bvp/scraper-core/license)](https://packagist.org/packages/bvp/scraper-core)
 
 ## Installation
