@@ -21,8 +21,8 @@
     },
     "require": {
         "php": "^8.2",
-        "bvp/converter": "^4.0",
-        "bvp/trimmer": "^4.0",
+        "bvp/converter": "^5.x-dev",
+        "bvp/trimmer": "^5.x-dev",
         "symfony/browser-kit": "^6.0 || ^7.0",
         "symfony/css-selector": "^6.0 || ^7.0",
         "symfony/http-client": "^6.0 || ^7.0",
@@ -40,5 +40,7 @@
         "psr-4": {
             "BVP\\ScraperCore\\Tests\\": "tests/"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
