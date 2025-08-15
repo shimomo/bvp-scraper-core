@@ -1,7 +1,7 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
     "name": "bvp/scraper-core",
-    "description": "The BVP Scraper Core package for Boatrace.",
+    "description": "The BVP Scraper Core for Boatrace.",
     "keywords": [
         "boatrace",
         "library",
