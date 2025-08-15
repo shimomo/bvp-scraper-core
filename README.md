@@ -13,4 +13,4 @@ composer require bvp/scraper-core
 ```
 
 ## License
-The BVP Scraper Core package is open source software licensed under the [MIT license](LICENSE).
+The BVP Scraper Core is open source software licensed under the [MIT license](LICENSE).
