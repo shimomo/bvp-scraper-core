@@ -16,11 +16,34 @@ use Symfony\Component\DomCrawler\Crawler;
 final class ScraperTest extends TestCase
 {
     /**
+     * @var \Symfony\Component\BrowserKit\HttpBrowser
+     */
+    private HttpBrowser $browserMock;
+
+    /**
      * @return void
      */
-    protected function tearDown(): void
+    protected function setUp(): void
     {
-        Scraper::resetInstance();
+        $html = <<<'HTML'
+        <html>
+            <head>
+                <title>PHP - Wikipedia</title>
+            </head>
+            <body>
+                <div id="firstId" class="firstClass">PHP</div>
+            </body>
+        </html>
+        HTML;
+
+        $browserMock = $this->getMockBuilder(HttpBrowser::class)
+            ->onlyMethods(['request'])
+            ->getMock();
+
+        $browserMock->method('request')
+            ->willReturnCallback(fn($method, $url) => new Crawler($html));
+
+        $this->browserMock = $browserMock;
     }
 
     /**
@@ -51,74 +74,80 @@ final class ScraperTest extends TestCase
     }
 
     /**
-     * @param  \Symfony\Component\DomCrawler\Crawler  $crawler
-     * @param  array                                  $arguments
-     * @param  array                                  $expected
+     * @param  array  $arguments
+     * @param  array  $expected
      * @return void
      */
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByKeyProvider')]
-    public function testFilterByKey(Crawler $crawler, array $arguments, array $expected): void
+    public function testFilterByKey(array $arguments, array $expected): void
     {
-        $this->assertSame($expected, Scraper::filterByKey($crawler, ...$arguments));
+        $crawler = $this->browserMock->request('GET', 'https://en.wikipedia.org/wiki/PHP');
+        $actual = Scraper::filterByKey($crawler, ...$arguments);
+        $this->assertSame($expected, $actual);
     }
 
     /**
-     * @param  \Symfony\Component\DomCrawler\Crawler  $crawler
-     * @param  array                                  $arguments
-     * @param  array                                  $expected
+     * @param  array  $arguments
+     * @param  array  $expected
      * @return void
      */
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByKeysProvider')]
-    public function testFilterByKeys(Crawler $crawler, array $arguments, array $expected): void
+    public function testFilterByKeys(array $arguments, array $expected): void
     {
-        $this->assertSame($expected, Scraper::filterByKeys($crawler, ...$arguments));
+        $crawler = $this->browserMock->request('GET', 'https://en.wikipedia.org/wiki/PHP');
+        $actual = Scraper::filterByKeys($crawler, ...$arguments);
+        $this->assertSame($expected, $actual);
     }
 
     /**
-     * @param  \Symfony\Component\DomCrawler\Crawler  $crawler
-     * @param  array                                  $arguments
-     * @param  array                                  $expected
+     * @param  array  $arguments
+     * @param  array  $expected
      * @return void
      */
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByIdPrefixProvider')]
-    public function testFilterByIdPrefix(Crawler $crawler, array $arguments, array $expected): void
+    public function testFilterByIdPrefix(array $arguments, array $expected): void
     {
-        $this->assertSame($expected, Scraper::filterByIdPrefix($crawler, ...$arguments));
+        $crawler = $this->browserMock->request('GET', 'https://en.wikipedia.org/wiki/PHP');
+        $actual = Scraper::filterByIdPrefix($crawler, ...$arguments);
+        $this->assertSame($expected, $actual);
     }
 
     /**
-     * @param  \Symfony\Component\DomCrawler\Crawler  $crawler
-     * @param  array                                  $arguments
-     * @param  array                                  $expected
+     * @param  array  $arguments
+     * @param  array  $expected
      * @return void
      */
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByIdPrefixesProvider')]
-    public function testFilterByIdPrefixes(Crawler $crawler, array $arguments, array $expected): void
+    public function testFilterByIdPrefixes(array $arguments, array $expected): void
     {
-        $this->assertSame($expected, Scraper::filterByIdPrefixes($crawler, ...$arguments));
+        $crawler = $this->browserMock->request('GET', 'https://en.wikipedia.org/wiki/PHP');
+        $actual = Scraper::filterByIdPrefixes($crawler, ...$arguments);
+        $this->assertSame($expected, $actual);
     }
 
     /**
-     * @param  \Symfony\Component\DomCrawler\Crawler  $crawler
-     * @param  array                                  $arguments
-     * @param  array                                  $expected
+     * @param  array  $arguments
+     * @param  array  $expected
      * @return void
      */
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByClassPrefixProvider')]
-    public function testFilterByClassPrefix(Crawler $crawler, array $arguments, array $expected): void
+    public function testFilterByClassPrefix(array $arguments, array $expected): void
     {
-        $this->assertSame($expected, Scraper::filterByClassPrefix($crawler, ...$arguments));
+        $crawler = $this->browserMock->request('GET', 'https://en.wikipedia.org/wiki/PHP');
+        $actual = Scraper::filterByClassPrefix($crawler, ...$arguments);
+        $this->assertSame($expected, $actual);
     }
 
     /**
-     * @param  \Symfony\Component\DomCrawler\Crawler  $crawler
-     * @param  array                                  $arguments
-     * @param  array                                  $expected
+     * @param  array  $arguments
+     * @param  array  $expected
      * @return void
      */
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByClassPrefixesProvider')]
-    public function testFilterByClassPrefixes(Crawler $crawler, array $arguments, array $expected): void
+    public function testFilterByClassPrefixes(array $arguments, array $expected): void
     {
-        $this->assertSame($expected, Scraper::filterByClassPrefixes($crawler, ...$arguments));
+        $crawler = $this->browserMock->request('GET', 'https://en.wikipedia.org/wiki/PHP');
+        $actual = Scraper::filterByClassPrefixes($crawler, ...$arguments);
+        $this->assertSame($expected, $actual);
     }
 }
