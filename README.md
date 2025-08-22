@@ -7,10 +7,19 @@
 [![unstable](https://poser.pugx.org/bvp/scraper-core/v/unstable)](https://packagist.org/packages/bvp/scraper-core#5.x-dev)
 [![license](https://poser.pugx.org/bvp/scraper-core/license)](https://packagist.org/packages/bvp/scraper-core)
 
-## Installation
+## 📦 Requirements
+- php: ^8.2
+- bvp/converter: ^5.0
+- bvp/trimmer: ^5.0
+- symfony/browser-kit: ^6.0 || ^7.0
+- symfony/css-selector: ^6.0 || ^7.0
+- symfony/http-client: ^6.0 || ^7.0
+- symfony/mime: ^6.0 || ^7.0
+
+## 💾 Installation
 ```bash
 composer require bvp/scraper-core
 ```
 
-## License
-The BVP Scraper Core is open source software licensed under the [MIT license](LICENSE).
+## 📄 License
+BVP Scraper Core is open-source software released under the [MIT license](LICENSE).
