@@ -10,7 +10,10 @@ namespace BVP\ScraperCore\Tests;
 final class ScraperDataProvider
 {
     /**
-     * @return array
+     * @return array<int, array{
+     *     arguments: array<int, string>,
+     *     expected: array<int, string>
+     * }>
      */
     public static function filterByKeyProvider(): array
     {
@@ -20,7 +23,10 @@ final class ScraperDataProvider
     }
 
     /**
-     * @return array
+     * @return array<int, array{
+     *     arguments: array<int, array<int, string>>,
+     *     expected: array<string, array<int, string>>
+     * }>
      */
     public static function filterByKeysProvider(): array
     {
@@ -30,7 +36,10 @@ final class ScraperDataProvider
     }
 
     /**
-     * @return array
+     * @return array<int, array{
+     *     arguments: array<int, string>,
+     *     expected: array<int, string>
+     * }>
      */
     public static function filterByIdPrefixProvider(): array
     {
@@ -40,7 +49,10 @@ final class ScraperDataProvider
     }
 
     /**
-     * @return array
+     * @return array<int, array{
+     *     arguments: array<int, array<int, string>>,
+     *     expected: array<string, array<int, string>>
+     * }>
      */
     public static function filterByIdPrefixesProvider(): array
     {
@@ -50,7 +62,10 @@ final class ScraperDataProvider
     }
 
     /**
-     * @return array
+     * @return array<int, array{
+     *     arguments: array<int, string>,
+     *     expected: array<int, string>
+     * }>
      */
     public static function filterByClassPrefixProvider(): array
     {
@@ -60,7 +75,10 @@ final class ScraperDataProvider
     }
 
     /**
-     * @return array
+     * @return array<int, array{
+     *     arguments: array<int, array<int, string>>,
+     *     expected: array<string, array<int, string>>
+     * }>
      */
     public static function filterByClassPrefixesProvider(): array
     {

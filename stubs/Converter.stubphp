@@ -1,0 +1,10 @@
+<?php
+
+namespace BVP\Converter;
+
+/**
+ * @psalm-method static float convertToFloat(string|float|int|null $value)
+ * @psalm-method static int convertToInt(string|float|int|null $value)
+ * @psalm-method static string convertToString(string|float|int|null $value)
+ */
+final class Converter {}

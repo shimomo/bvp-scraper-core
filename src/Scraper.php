@@ -44,17 +44,17 @@ final class Scraper
     /**
      * @param  \Symfony\Component\DomCrawler\Crawler  $crawler
      * @param  string                                 $key
-     * @return array
+     * @return array<array-key, mixed>
      */
     public static function filterByKey(Crawler $crawler, string $key): array
     {
-        return $crawler->filter($key)->each(fn($node) => $node->text());
+        return $crawler->filter($key)->each(fn(Crawler $node): string => $node->text());
     }
 
     /**
      * @param  \Symfony\Component\DomCrawler\Crawler  $crawler
-     * @param  array                                  $keys
-     * @return array
+     * @param  array<int, string>                     $keys
+     * @return array<string, array<array-key, mixed>>
      */
     public static function filterByKeys(Crawler $crawler, array $keys): array
     {
@@ -69,18 +69,18 @@ final class Scraper
     /**
      * @param  \Symfony\Component\DomCrawler\Crawler  $crawler
      * @param  string                                 $prefix
-     * @return array
+     * @return array<array-key, mixed>
      */
     public static function filterByIdPrefix(Crawler $crawler, string $prefix): array
     {
         return $crawler->filterXPath('//*[starts-with(@id, "' . ltrim($prefix, '#') . '")]')
-            ->each(fn($node) => $node->text());
+            ->each(fn(Crawler $node): string => $node->text());
     }
 
     /**
      * @param  \Symfony\Component\DomCrawler\Crawler  $crawler
-     * @param  array                                  $prefixes
-     * @return array
+     * @param  array<int, string>                     $prefixes
+     * @return array<string, array<array-key, mixed>>
      */
     public static function filterByIdPrefixes(Crawler $crawler, array $prefixes): array
     {
@@ -95,18 +95,18 @@ final class Scraper
     /**
      * @param  \Symfony\Component\DomCrawler\Crawler  $crawler
      * @param  string                                 $prefix
-     * @return array
+     * @return array<array-key, mixed>
      */
     public static function filterByClassPrefix(Crawler $crawler, string $prefix): array
     {
         return $crawler->filterXPath('//*[starts-with(@class, "' . ltrim($prefix, '.') . '")]')
-            ->each(fn($node) => $node->text());
+            ->each(fn(Crawler $node): string => $node->text());
     }
 
     /**
      * @param  \Symfony\Component\DomCrawler\Crawler  $crawler
-     * @param  array                                  $prefixes
-     * @return array
+     * @param  array<int, string>                     $prefixes
+     * @return array<string, array<array-key, mixed>>
      */
     public static function filterByClassPrefixes(Crawler $crawler, array $prefixes): array
     {

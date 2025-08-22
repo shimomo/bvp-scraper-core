@@ -13,7 +13,7 @@ use BVP\Trimmer\Trimmer;
 final class Normalizer
 {
     /**
-     * @var array
+     * @var array<string, bool>
      */
     private static array $defaultOptions = [
         'shouldRemoveAllSpaces' => false,
@@ -23,7 +23,7 @@ final class Normalizer
 
     /**
      * @param  array|string|float|int|null  $data
-     * @param  array                        $options
+     * @param  array<string, bool>          $options
      * @return array|string|float|int|null
      */
     public static function normalize(array|string|float|int|null $data, array $options = []): array|string|float|int|null
@@ -41,7 +41,7 @@ final class Normalizer
         }
 
         if (is_array($data)) {
-            return array_map(fn($value) => self::normalize($value, $options), $data);
+            return array_map(fn(array|string|float|int|null $value): array|string|float|int|null => self::normalize($value, $options), $data);
         }
 
         $options = array_merge(
@@ -59,42 +59,42 @@ final class Normalizer
     }
 
     /**
-     * @param  string  $value
-     * @param  array   $options
+     * @param  string               $value
+     * @param  array<string, bool>  $options
      * @return string
      */
     private static function normalizeSpaces(string $value, array $options): string
     {
         if ($options['shouldRemoveAllSpaces']) {
-            return preg_replace('/\s+/u', '', $value);
+            return preg_replace('/\s+/u', '', $value) ?? $value;
         } else {
-            return preg_replace('/\s+/u', ' ', $value);
+            return preg_replace('/\s+/u', ' ', $value) ?? $value;
         }
     }
 
     /**
-     * @param  string  $value
-     * @param  array   $options
+     * @param  string               $value
+     * @param  array<string, bool>  $options
      * @return string
      */
     private static function normalizeNumbers(string $value, array $options): string
     {
         if ($options['shouldRemoveAllNumbers']) {
-            return preg_replace('/\d/u', '', $value);
+            return preg_replace('/\d/u', '', $value) ?? $value;
         } else {
             return $value;
         }
     }
 
     /**
-     * @param  string  $value
-     * @param  array   $options
+     * @param  string               $value
+     * @param  array<string, bool>  $options
      * @return string
      */
     private static function normalizeNotNumbers(string $value, array $options): string
     {
         if ($options['shouldRemoveAllNotNumbers']) {
-            return preg_replace('/\D/u', '', $value);
+            return preg_replace('/\D/u', '', $value) ?? $value;
         } else {
             return $value;
         }
@@ -110,8 +110,8 @@ final class Normalizer
     }
 
     /**
-     * @param  array  $array
-     * @return array
+     * @param  array<string, bool>  $array
+     * @return array<string, bool>
      */
     private static function convertArrayKeysToCamelCase(array $array): array
     {

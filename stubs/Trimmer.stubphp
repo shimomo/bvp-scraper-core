@@ -1,0 +1,10 @@
+<?php
+
+namespace BVP\Trimmer;
+
+/**
+ * @psalm-method static string trim(mixed $value, string $characters = "\x00\x09\x0A\x0B\x0D\x20")
+ * @psalm-method static string ltrim(mixed $value, string $characters = "\x00\x09\x0A\x0B\x0D\x20")
+ * @psalm-method static string rtrim(mixed $value, string $characters = "\x00\x09\x0A\x0B\x0D\x20")
+ */
+final class Trimmer {}

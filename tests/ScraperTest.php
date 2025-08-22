@@ -74,8 +74,8 @@ final class ScraperTest extends TestCase
     }
 
     /**
-     * @param  array  $arguments
-     * @param  array  $expected
+     * @param  array<int, string>  $arguments
+     * @param  array<int, string>  $expected
      * @return void
      */
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByKeyProvider')]
@@ -87,8 +87,8 @@ final class ScraperTest extends TestCase
     }
 
     /**
-     * @param  array  $arguments
-     * @param  array  $expected
+     * @param  array<int, array<int, string>>     $arguments
+     * @param  array<string, array<int, string>>  $expected
      * @return void
      */
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByKeysProvider')]
@@ -100,8 +100,8 @@ final class ScraperTest extends TestCase
     }
 
     /**
-     * @param  array  $arguments
-     * @param  array  $expected
+     * @param  array<int, string>  $arguments
+     * @param  array<int, string>  $expected
      * @return void
      */
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByIdPrefixProvider')]
@@ -113,8 +113,8 @@ final class ScraperTest extends TestCase
     }
 
     /**
-     * @param  array  $arguments
-     * @param  array  $expected
+     * @param  array<int, array<int, string>>     $arguments
+     * @param  array<string, array<int, string>>  $expected
      * @return void
      */
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByIdPrefixesProvider')]
@@ -126,8 +126,8 @@ final class ScraperTest extends TestCase
     }
 
     /**
-     * @param  array  $arguments
-     * @param  array  $expected
+     * @param  array<int, string>  $arguments
+     * @param  array<int, string>  $expected
      * @return void
      */
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByClassPrefixProvider')]
@@ -139,8 +139,8 @@ final class ScraperTest extends TestCase
     }
 
     /**
-     * @param  array  $arguments
-     * @param  array  $expected
+     * @param  array<int, array<int, string>>     $arguments
+     * @param  array<string, array<int, string>>  $expected
      * @return void
      */
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByClassPrefixesProvider')]
