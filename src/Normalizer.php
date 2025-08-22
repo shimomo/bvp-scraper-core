@@ -41,7 +41,11 @@ final class Normalizer
         }
 
         if (is_array($data)) {
-            return array_map(fn(array|string|float|int|null $value): array|string|float|int|null => self::normalize($value, $options), $data);
+            return array_map(
+                fn(array|string|float|int|null $value): array|string|float|int|null
+                    => self::normalize($value, $options),
+                $data
+            );
         }
 
         $options = array_merge(
@@ -50,7 +54,6 @@ final class Normalizer
         );
 
         $data = Converter::convertToString($data);
-
         $data = self::normalizeSpaces($data, $options);
         $data = self::normalizeNumbers($data, $options);
         $data = self::normalizeNotNumbers($data, $options);
