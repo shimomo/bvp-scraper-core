@@ -26,8 +26,10 @@ final class Normalizer
      * @param  array<string, bool>          $options
      * @return array|string|float|int|null
      */
-    public static function normalize(array|string|float|int|null $data, array $options = []): array|string|float|int|null
-    {
+    public static function normalize(
+        array|string|float|int|null $data,
+        array $options = []
+    ): array|string|float|int|null {
         if (is_float($data) || is_int($data) || is_null($data)) {
             return $data;
         }
