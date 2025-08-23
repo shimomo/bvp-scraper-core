@@ -1,7 +1,7 @@
 # Scraper Core for Boatrace Venture Project
 
 [![psalm](https://github.com/shimomo/bvp-scraper-core/actions/workflows/psalm.yml/badge.svg)](https://github.com/shimomo/bvp-scraper-core/actions/workflows/psalm.yml)
-[![tests](https://github.com/shimomo/bvp-scraper-core/actions/workflows/tests.yml/badge.svg)](https://github.com/shimomo/bvp-scraper-core/actions/workflows/tests.yml)
+[![test](https://github.com/shimomo/bvp-scraper-core/actions/workflows/test.yml/badge.svg)](https://github.com/shimomo/bvp-scraper-core/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/shimomo/bvp-scraper-core/graph/badge.svg?token=IZI1GDcqxw)](https://codecov.io/gh/shimomo/bvp-scraper-core)
 [![php](https://poser.pugx.org/bvp/scraper-core/require/php)](https://packagist.org/packages/bvp/scraper-core)
 [![stable](https://poser.pugx.org/bvp/scraper-core/v/stable)](https://packagist.org/packages/bvp/scraper-core)
