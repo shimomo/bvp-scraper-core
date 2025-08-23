@@ -9,14 +9,14 @@
     findUnusedCode="false"
 >
     <projectFiles>
-        <directory name="src" />
+        <directory name="src"/>
         <ignoreFiles>
-            <directory name="vendor" />
+            <directory name="vendor"/>
         </ignoreFiles>
     </projectFiles>
 
     <stubs>
-        <file name="stubs/Converter.stubphp" />
-        <file name="stubs/Trimmer.stubphp" />
+        <file name="stubs/Converter.stubphp"/>
+        <file name="stubs/Trimmer.stubphp"/>
     </stubs>
 </psalm>
