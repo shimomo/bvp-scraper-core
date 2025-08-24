@@ -18,7 +18,10 @@ final class ScraperDataProvider
     public static function filterByKeyProvider(): array
     {
         return [
-            ['arguments' => ['title'], 'expected' => ['PHP - Wikipedia']],
+            [
+                'arguments' => ['title'],
+                'expected' => ['PHP - Wikipedia'],
+            ],
         ];
     }
 
@@ -31,7 +34,10 @@ final class ScraperDataProvider
     public static function filterByKeysProvider(): array
     {
         return [
-            ['arguments' => [['title']], 'expected' => ['title' => ['PHP - Wikipedia']]],
+            [
+                'arguments' => [['title']],
+                'expected' => ['title' => ['PHP - Wikipedia']],
+            ],
         ];
     }
 
@@ -44,7 +50,10 @@ final class ScraperDataProvider
     public static function filterByIdPrefixProvider(): array
     {
         return [
-            ['arguments' => ['first'], 'expected' => ['PHP']],
+            [
+                'arguments' => ['first'],
+                'expected' => ['PHP'],
+            ],
         ];
     }
 
@@ -57,7 +66,10 @@ final class ScraperDataProvider
     public static function filterByIdPrefixesProvider(): array
     {
         return [
-            ['arguments' => [['first']], 'expected' => ['first' => ['PHP']]],
+            [
+                'arguments' => [['first']],
+                'expected' => ['first' => ['PHP']],
+            ],
         ];
     }
 
@@ -70,7 +82,10 @@ final class ScraperDataProvider
     public static function filterByClassPrefixProvider(): array
     {
         return [
-            ['arguments' => ['first'], 'expected' => ['PHP']],
+            [
+                'arguments' => ['first'],
+                'expected' => ['PHP'],
+            ],
         ];
     }
 
@@ -83,7 +98,10 @@ final class ScraperDataProvider
     public static function filterByClassPrefixesProvider(): array
     {
         return [
-            ['arguments' => [['first']], 'expected' => ['first' => ['PHP']]],
+            [
+                'arguments' => [['first']],
+                'expected' => ['first' => ['PHP']],
+            ],
         ];
     }
 }
