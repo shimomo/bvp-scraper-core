@@ -59,6 +59,7 @@ final class Scraper
     public static function filterByKeys(Crawler $crawler, array $keys): array
     {
         $response = [];
+
         foreach ($keys as $key) {
             $response[$key] = self::filterByKey($crawler, $key);
         }
@@ -85,6 +86,7 @@ final class Scraper
     public static function filterByIdPrefixes(Crawler $crawler, array $prefixes): array
     {
         $response = [];
+
         foreach ($prefixes as $prefix) {
             $response[$prefix] = self::filterByIdPrefix($crawler, $prefix);
         }
@@ -111,6 +113,7 @@ final class Scraper
     public static function filterByClassPrefixes(Crawler $crawler, array $prefixes): array
     {
         $response = [];
+
         foreach ($prefixes as $prefix) {
             $response[$prefix] = self::filterByClassPrefix($crawler, $prefix);
         }
