@@ -10,10 +10,12 @@ namespace BVP\ScraperCore\Tests;
 final class ScraperDataProvider
 {
     /**
-     * @return array<int, array{
+     * @psalm-return array<int, array{
      *     arguments: array<int, string>,
      *     expected: array<int, string>
      * }>
+     *
+     * @return array
      */
     public static function filterByKeyProvider(): array
     {
@@ -26,10 +28,12 @@ final class ScraperDataProvider
     }
 
     /**
-     * @return array<int, array{
+     * @psalm-return array<int, array{
      *     arguments: array<int, array<int, string>>,
      *     expected: array<string, array<int, string>>
      * }>
+     *
+     * @return array
      */
     public static function filterByKeysProvider(): array
     {
@@ -42,10 +46,12 @@ final class ScraperDataProvider
     }
 
     /**
-     * @return array<int, array{
+     * @psalm-return array<int, array{
      *     arguments: array<int, string>,
      *     expected: array<int, string>
      * }>
+     *
+     * @return array
      */
     public static function filterByIdPrefixProvider(): array
     {
@@ -58,10 +64,12 @@ final class ScraperDataProvider
     }
 
     /**
-     * @return array<int, array{
+     * @psalm-return array<int, array{
      *     arguments: array<int, array<int, string>>,
      *     expected: array<string, array<int, string>>
      * }>
+     *
+     * @return array
      */
     public static function filterByIdPrefixesProvider(): array
     {
@@ -74,10 +82,12 @@ final class ScraperDataProvider
     }
 
     /**
-     * @return array<int, array{
+     * @psalm-return array<int, array{
      *     arguments: array<int, string>,
      *     expected: array<int, string>
      * }>
+     *
+     * @return array
      */
     public static function filterByClassPrefixProvider(): array
     {
@@ -90,10 +100,12 @@ final class ScraperDataProvider
     }
 
     /**
-     * @return array<int, array{
+     * @psalm-return array<int, array{
      *     arguments: array<int, array<int, string>>,
      *     expected: array<string, array<int, string>>
      * }>
+     *
+     * @return array
      */
     public static function filterByClassPrefixesProvider(): array
     {

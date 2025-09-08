@@ -14,8 +14,12 @@ use PHPUnit\Framework\TestCase;
 final class NormalizerTest extends TestCase
 {
     /**
-     * @param  array<int, mixed>                              $arguments
-     * @param  array<int, int|float|string>|string|float|int  $expected
+     * @psalm-param array<int, mixed> $arguments
+     * @psalm-param int|float|string|array<int, int|float|string> $expected
+     * @psalm-return void
+     *
+     * @param array $arguments
+     * @param int|float|string|array $expected
      * @return void
      */
     #[DataProviderExternal(NormalizerDataProvider::class, 'normalizeProvider')]

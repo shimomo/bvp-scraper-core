@@ -10,10 +10,12 @@ namespace BVP\ScraperCore\Tests;
 final class NormalizerDataProvider
 {
     /**
-     * @return array<int, array{
+     * @psalm-return array<int, array{
      *     arguments: array<int, mixed>,
-     *     expected: array<int, int|float|string>|string|float|int
+     *     expected: int|float|string|array<int, int|float|string>
      * }>
+     *
+     * @return array
      */
     public static function normalizeProvider(): array
     {

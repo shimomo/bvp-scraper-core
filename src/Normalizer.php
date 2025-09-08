@@ -13,7 +13,9 @@ use BVP\Trimmer\Trimmer;
 final class Normalizer
 {
     /**
-     * @var array<string, bool>
+     * @psalm-var array<non-empty-string, bool>
+     *
+     * @var array
      */
     private static array $defaultOptions = [
         'shouldRemoveAllSpaces' => false,
@@ -22,9 +24,13 @@ final class Normalizer
     ];
 
     /**
-     * @param  array|string|float|int|null  $data
-     * @param  array<string, bool>          $options
-     * @return array|string|float|int|null
+     * @psalm-param int|float|string|array|null $data
+     * @psalm-param array<string, bool> $options
+     * @psalm-return int|float|string|array|null
+     *
+     * @param int|float|string|array|null $data
+     * @param array $options
+     * @return int|float|string|array|null
      */
     public static function normalize(
         array|string|float|int|null $data,
@@ -64,8 +70,12 @@ final class Normalizer
     }
 
     /**
-     * @param  string               $value
-     * @param  array<string, bool>  $options
+     * @psalm-param string $value
+     * @psalm-param array<string, bool> $options
+     * @psalm-return string
+     *
+     * @param string $value
+     * @param array $options
      * @return string
      */
     private static function normalizeSpaces(string $value, array $options): string
@@ -78,8 +88,12 @@ final class Normalizer
     }
 
     /**
-     * @param  string               $value
-     * @param  array<string, bool>  $options
+     * @psalm-param string $value
+     * @psalm-param array<string, bool> $options
+     * @psalm-return string
+     *
+     * @param string $value
+     * @param array $options
      * @return string
      */
     private static function normalizeNumbers(string $value, array $options): string
@@ -92,8 +106,12 @@ final class Normalizer
     }
 
     /**
-     * @param  string               $value
-     * @param  array<string, bool>  $options
+     * @psalm-param string $value
+     * @psalm-param array<string, bool> $options
+     * @psalm-return string
+     *
+     * @param string $value
+     * @param array $options
      * @return string
      */
     private static function normalizeNotNumbers(string $value, array $options): string
@@ -106,7 +124,10 @@ final class Normalizer
     }
 
     /**
-     * @param  string  $value
+     * @psalm-param string $value
+     * @psalm-return string
+     *
+     * @param string $value
      * @return string
      */
     private static function convertToCamelCase(string $value): string
@@ -115,8 +136,11 @@ final class Normalizer
     }
 
     /**
-     * @param  array<string, bool>  $array
-     * @return array<string, bool>
+     * @psalm-param array<string, bool> $array
+     * @psalm-return array<string, bool>
+     *
+     * @param array $array
+     * @return array
      */
     private static function convertArrayKeysToCamelCase(array $array): array
     {

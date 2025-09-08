@@ -13,11 +13,15 @@ use Symfony\Component\DomCrawler\Crawler;
 final class Scraper
 {
     /**
+     * @psalm-var \Symfony\Component\BrowserKit\HttpBrowser|null
+     *
      * @var \Symfony\Component\BrowserKit\HttpBrowser|null
      */
     private static ?HttpBrowser $instance;
 
     /**
+     * @psalm-return \Symfony\Component\BrowserKit\HttpBrowser
+     *
      * @return \Symfony\Component\BrowserKit\HttpBrowser
      */
     public static function getInstance(): HttpBrowser
@@ -26,6 +30,8 @@ final class Scraper
     }
 
     /**
+     * @psalm-return \Symfony\Component\BrowserKit\HttpBrowser
+     *
      * @return \Symfony\Component\BrowserKit\HttpBrowser
      */
     public static function createInstance(): HttpBrowser
@@ -34,6 +40,8 @@ final class Scraper
     }
 
     /**
+     * @psalm-return void
+     *
      * @return void
      */
     public static function resetInstance(): void
@@ -42,9 +50,13 @@ final class Scraper
     }
 
     /**
-     * @param  \Symfony\Component\DomCrawler\Crawler  $crawler
-     * @param  string                                 $key
-     * @return array<array-key, mixed>
+     * @psalm-param \Symfony\Component\DomCrawler\Crawler $crawler
+     * @psalm-param string $key
+     * @psalm-return array<array-key, mixed>
+     *
+     * @param \Symfony\Component\DomCrawler\Crawler $crawler
+     * @param string $key
+     * @return array
      */
     public static function filterByKey(Crawler $crawler, string $key): array
     {
@@ -52,9 +64,13 @@ final class Scraper
     }
 
     /**
-     * @param  \Symfony\Component\DomCrawler\Crawler  $crawler
-     * @param  array<int, string>                     $keys
-     * @return array<string, array<array-key, mixed>>
+     * @psalm-param \Symfony\Component\DomCrawler\Crawler $crawler
+     * @psalm-param array<int, string> $keys
+     * @psalm-return array<string, array<array-key, mixed>>
+     *
+     * @param \Symfony\Component\DomCrawler\Crawler $crawler
+     * @param array $keys
+     * @return array
      */
     public static function filterByKeys(Crawler $crawler, array $keys): array
     {
@@ -68,9 +84,13 @@ final class Scraper
     }
 
     /**
-     * @param  \Symfony\Component\DomCrawler\Crawler  $crawler
-     * @param  string                                 $prefix
-     * @return array<array-key, mixed>
+     * @psalm-param \Symfony\Component\DomCrawler\Crawler $crawler
+     * @psalm-param string $prefix
+     * @psalm-return array<array-key, mixed>
+     *
+     * @param \Symfony\Component\DomCrawler\Crawler $crawler
+     * @param string $prefix
+     * @return array
      */
     public static function filterByIdPrefix(Crawler $crawler, string $prefix): array
     {
@@ -79,9 +99,13 @@ final class Scraper
     }
 
     /**
-     * @param  \Symfony\Component\DomCrawler\Crawler  $crawler
-     * @param  array<int, string>                     $prefixes
-     * @return array<string, array<array-key, mixed>>
+     * @psalm-param \Symfony\Component\DomCrawler\Crawler $crawler
+     * @psalm-param array<array-key, string> $prefixes
+     * @psalm-return array<string, array<array-key, mixed>>
+     *
+     * @param \Symfony\Component\DomCrawler\Crawler $crawler
+     * @param array $prefixes
+     * @return array
      */
     public static function filterByIdPrefixes(Crawler $crawler, array $prefixes): array
     {
@@ -95,9 +119,13 @@ final class Scraper
     }
 
     /**
-     * @param  \Symfony\Component\DomCrawler\Crawler  $crawler
-     * @param  string                                 $prefix
-     * @return array<array-key, mixed>
+     * @psalm-param \Symfony\Component\DomCrawler\Crawler $crawler
+     * @psalm-param string $prefix
+     * @psalm-return array<array-key, mixed>
+     *
+     * @param \Symfony\Component\DomCrawler\Crawler $crawler
+     * @param string $prefix
+     * @return array
      */
     public static function filterByClassPrefix(Crawler $crawler, string $prefix): array
     {
@@ -106,9 +134,13 @@ final class Scraper
     }
 
     /**
-     * @param  \Symfony\Component\DomCrawler\Crawler  $crawler
-     * @param  array<int, string>                     $prefixes
-     * @return array<string, array<array-key, mixed>>
+     * @psalm-param \Symfony\Component\DomCrawler\Crawler $crawler
+     * @psalm-param array<array-key, string> $prefixes
+     * @psalm-return array<string, array<array-key, mixed>>
+     *
+     * @param \Symfony\Component\DomCrawler\Crawler $crawler
+     * @param array $prefixes
+     * @return array
      */
     public static function filterByClassPrefixes(Crawler $crawler, array $prefixes): array
     {

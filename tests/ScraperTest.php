@@ -16,11 +16,15 @@ use Symfony\Component\DomCrawler\Crawler;
 final class ScraperTest extends TestCase
 {
     /**
+     * @psalm-var \Symfony\Component\BrowserKit\HttpBrowser
+     *
      * @var \Symfony\Component\BrowserKit\HttpBrowser
      */
     private HttpBrowser $scraperMock;
 
     /**
+     * @psalm-return void
+     *
      * @return void
      */
     protected function setUp(): void
@@ -47,6 +51,8 @@ final class ScraperTest extends TestCase
     }
 
     /**
+     * @psalm-return void
+     *
      * @return void
      */
     public function testGetInstance(): void
@@ -55,6 +61,8 @@ final class ScraperTest extends TestCase
     }
 
     /**
+     * @psalm-return void
+     *
      * @return void
      */
     public function testCreateInstance(): void
@@ -63,6 +71,8 @@ final class ScraperTest extends TestCase
     }
 
     /**
+     * @psalm-return void
+     *
      * @return void
      */
     public function testResetInstance(): void
@@ -74,8 +84,12 @@ final class ScraperTest extends TestCase
     }
 
     /**
-     * @param  array<int, string>  $arguments
-     * @param  array<int, string>  $expected
+     * @psalm-param array<int, string> $arguments
+     * @psalm-param array<int, string> $expected
+     * @psalm-return void
+     *
+     * @param array $arguments
+     * @param array $expected
      * @return void
      */
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByKeyProvider')]
@@ -87,8 +101,12 @@ final class ScraperTest extends TestCase
     }
 
     /**
-     * @param  array<int, array<int, string>>     $arguments
-     * @param  array<string, array<int, string>>  $expected
+     * @psalm-param array<int, array<int, string>> $arguments
+     * @psalm-param array<string, array<int, string>> $expected
+     * @psalm-return void
+     *
+     * @param array $arguments
+     * @param array $expected
      * @return void
      */
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByKeysProvider')]
@@ -100,8 +118,12 @@ final class ScraperTest extends TestCase
     }
 
     /**
-     * @param  array<int, string>  $arguments
-     * @param  array<int, string>  $expected
+     * @psalm-param array<int, string> $arguments
+     * @psalm-param array<int, string> $expected
+     * @psalm-return void
+     *
+     * @param array $arguments
+     * @param array $expected
      * @return void
      */
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByIdPrefixProvider')]
@@ -113,8 +135,12 @@ final class ScraperTest extends TestCase
     }
 
     /**
-     * @param  array<int, array<int, string>>     $arguments
-     * @param  array<string, array<int, string>>  $expected
+     * @psalm-param array<int, array<int, string>> $arguments
+     * @psalm-param array<string, array<int, string>> $expected
+     * @psalm-return void
+     *
+     * @param array $arguments
+     * @param array $expected
      * @return void
      */
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByIdPrefixesProvider')]
@@ -126,8 +152,12 @@ final class ScraperTest extends TestCase
     }
 
     /**
-     * @param  array<int, string>  $arguments
-     * @param  array<int, string>  $expected
+     * @psalm-param array<int, string> $arguments
+     * @psalm-param array<int, string> $expected
+     * @psalm-return void
+     *
+     * @param array $arguments
+     * @param array $expected
      * @return void
      */
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByClassPrefixProvider')]
@@ -139,8 +169,12 @@ final class ScraperTest extends TestCase
     }
 
     /**
-     * @param  array<int, array<int, string>>     $arguments
-     * @param  array<string, array<int, string>>  $expected
+     * @psalm-param array<int, array<int, string>> $arguments
+     * @psalm-param array<string, array<int, string>> $expected
+     * @psalm-return void
+     *
+     * @param array $arguments
+     * @param array $expected
      * @return void
      */
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByClassPrefixesProvider')]
