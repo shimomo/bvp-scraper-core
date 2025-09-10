@@ -23,7 +23,7 @@ final class NormalizerTest extends TestCase
      * @return void
      */
     #[DataProviderExternal(NormalizerDataProvider::class, 'normalizeProvider')]
-    public function testNormalize(array $arguments, array|string|float|int $expected): void
+    public function testNormalize(array $arguments, int|float|string|array $expected): void
     {
         $this->assertSame($expected, Normalizer::normalize(...$arguments));
     }

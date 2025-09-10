@@ -33,9 +33,9 @@ final class Normalizer
      * @return int|float|string|array|null
      */
     public static function normalize(
-        array|string|float|int|null $data,
+        int|float|string|array|null $data,
         array $options = []
-    ): array|string|float|int|null {
+    ): int|float|string|array|null {
         if (is_float($data) || is_int($data) || is_null($data)) {
             return $data;
         }
@@ -50,7 +50,7 @@ final class Normalizer
 
         if (is_array($data)) {
             return array_map(
-                fn(array|string|float|int|null $value): array|string|float|int|null
+                fn(int|float|string|array|null $value): int|float|string|array|null
                     => self::normalize($value, $options),
                 $data
             );
