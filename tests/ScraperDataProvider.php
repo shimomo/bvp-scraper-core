@@ -116,4 +116,22 @@ final class ScraperDataProvider
             ],
         ];
     }
+
+    /**
+     * @psalm-return array<int, array{
+     *     argument: non-empty-string,
+     *     expected: non-empty-string
+     * }>
+     *
+     * @return array
+     */
+    public static function filterXPath(): array
+    {
+        return [
+            [
+                'argument' => 'descendant-or-self::body/div',
+                'expected' => 'PHP',
+            ],
+        ];
+    }
 }

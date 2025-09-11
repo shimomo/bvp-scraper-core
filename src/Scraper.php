@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace BVP\ScraperCore;
 
+use BVP\Converter\Converter;
+use BVP\Trimmer\Trimmer;
 use Symfony\Component\BrowserKit\HttpBrowser;
 use Symfony\Component\DomCrawler\Crawler;
 
@@ -151,5 +153,23 @@ final class Scraper
         }
 
         return $response;
+    }
+
+    /**
+     * @param \Symfony\Component\DomCrawler\Crawler $crawler
+     * @param string $xpath
+     * @return string|null
+     */
+    public static function filterXPath(Crawler $crawler, string $xpath): ?string
+    {
+        if (!$crawler->filterXPath($xpath)->count()) {
+            return null;
+        }
+
+        $value = $crawler->filterXPath($xpath)->text();
+        $value = Converter::convertToString($value);
+        $value = Trimmer::trim($value);
+
+        return $value;
     }
 }

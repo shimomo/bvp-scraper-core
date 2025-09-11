@@ -184,4 +184,21 @@ final class ScraperTest extends TestCase
         $actual = Scraper::filterByClassPrefixes($crawler, ...$arguments);
         $this->assertSame($expected, $actual);
     }
+
+    /**
+     * @psalm-param non-empty-string $argument
+     * @psalm-param non-empty-string $expected
+     * @psalm-return void
+     *
+     * @param string $argument
+     * @param string $expected
+     * @return void
+     */
+    #[DataProviderExternal(ScraperDataProvider::class, 'filterXPath')]
+    public function testFilterXPath(string $argument, string $expected): void
+    {
+        $crawler = $this->scraperMock->request('GET', 'https://en.wikipedia.org/wiki/PHP');
+        $actual = Scraper::filterXPath($crawler, $argument);
+        $this->assertSame($expected, $actual);
+    }
 }
