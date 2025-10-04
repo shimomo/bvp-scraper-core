@@ -156,6 +156,10 @@ final class Scraper
     }
 
     /**
+     * @psalm-param \Symfony\Component\DomCrawler\Crawler $crawler
+     * @psalm-param string $xpath
+     * @psalm-return string|null
+     *
      * @param \Symfony\Component\DomCrawler\Crawler $crawler
      * @param string $xpath
      * @return string|null
