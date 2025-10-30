@@ -10,6 +10,7 @@
 [![license](https://poser.pugx.org/bvp/scraper-core/license)](https://packagist.org/packages/bvp/scraper-core)
 
 ## 📦 Requirements
+
 - php: ^8.2
 - bvp/converter: ^5.3
 - bvp/trimmer: ^5.3
@@ -18,9 +19,11 @@
 - symfony/http-client: ^6.0 || ^7.0
 
 ## 💾 Installation
+
 ```bash
 composer require bvp/scraper-core
 ```
 
 ## 📄 License
+
 Scraper Core is open-source software released under the [MIT license](LICENSE).
