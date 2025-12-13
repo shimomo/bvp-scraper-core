@@ -10,9 +10,9 @@ namespace BVP\ScraperCore\Tests;
 final class NormalizerDataProvider
 {
     /**
-     * @psalm-return array<int, array{
-     *     arguments: array<int, mixed>,
-     *     expected: int|float|string|array<int, int|float|string>
+     * @psalm-return non-empty-list<array{
+     *     arguments: non-empty-list<int|float|string|array|null>,
+     *     expected: int|float|non-empty-string|non-empty-list<int|float|non-empty-string>
      * }>
      *
      * @return array

@@ -14,8 +14,8 @@ use PHPUnit\Framework\TestCase;
 final class NormalizerTest extends TestCase
 {
     /**
-     * @psalm-param array<int, mixed> $arguments
-     * @psalm-param int|float|string|array<int, int|float|string> $expected
+     * @psalm-param non-empty-list<int|float|string|array|null> $arguments
+     * @psalm-param int|float|non-empty-string|non-empty-list<int|float|non-empty-string> $expected
      * @psalm-return void
      *
      * @param array $arguments
@@ -25,6 +25,11 @@ final class NormalizerTest extends TestCase
     #[DataProviderExternal(NormalizerDataProvider::class, 'normalizeProvider')]
     public function testNormalize(array $arguments, int|float|string|array $expected): void
     {
-        $this->assertSame($expected, Normalizer::normalize(...$arguments));
+        $data = array_shift($arguments);
+
+        /** @psalm-var array<string, bool> */
+        $options = array_shift($arguments) ?? [];
+
+        $this->assertSame($expected, Normalizer::normalize($data, $options));
     }
 }

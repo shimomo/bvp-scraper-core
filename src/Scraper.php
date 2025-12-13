@@ -15,9 +15,9 @@ use Symfony\Component\DomCrawler\Crawler;
 final class Scraper
 {
     /**
-     * @psalm-var \Symfony\Component\BrowserKit\HttpBrowser|null
+     * @psalm-var ?\Symfony\Component\BrowserKit\HttpBrowser
      *
-     * @var \Symfony\Component\BrowserKit\HttpBrowser|null
+     * @var ?\Symfony\Component\BrowserKit\HttpBrowser
      */
     private static ?HttpBrowser $instance;
 
@@ -67,7 +67,7 @@ final class Scraper
 
     /**
      * @psalm-param \Symfony\Component\DomCrawler\Crawler $crawler
-     * @psalm-param array<int, string> $keys
+     * @psalm-param list<string> $keys
      * @psalm-return array<string, array<array-key, mixed>>
      *
      * @param \Symfony\Component\DomCrawler\Crawler $crawler
@@ -102,7 +102,7 @@ final class Scraper
 
     /**
      * @psalm-param \Symfony\Component\DomCrawler\Crawler $crawler
-     * @psalm-param array<array-key, string> $prefixes
+     * @psalm-param list<string> $prefixes
      * @psalm-return array<string, array<array-key, mixed>>
      *
      * @param \Symfony\Component\DomCrawler\Crawler $crawler
@@ -137,7 +137,7 @@ final class Scraper
 
     /**
      * @psalm-param \Symfony\Component\DomCrawler\Crawler $crawler
-     * @psalm-param array<array-key, string> $prefixes
+     * @psalm-param list<string> $prefixes
      * @psalm-return array<string, array<array-key, mixed>>
      *
      * @param \Symfony\Component\DomCrawler\Crawler $crawler
@@ -158,11 +158,11 @@ final class Scraper
     /**
      * @psalm-param \Symfony\Component\DomCrawler\Crawler $crawler
      * @psalm-param string $xpath
-     * @psalm-return string|null
+     * @psalm-return ?string
      *
      * @param \Symfony\Component\DomCrawler\Crawler $crawler
      * @param string $xpath
-     * @return string|null
+     * @return ?string
      */
     public static function filterXPath(Crawler $crawler, string $xpath): ?string
     {

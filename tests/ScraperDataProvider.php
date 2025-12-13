@@ -10,9 +10,9 @@ namespace BVP\ScraperCore\Tests;
 final class ScraperDataProvider
 {
     /**
-     * @psalm-return array<int, array{
-     *     arguments: array<int, string>,
-     *     expected: array<int, string>
+     * @psalm-return non-empty-list<array{
+     *     arguments: non-empty-list<non-empty-string>,
+     *     expected: non-empty-list<non-empty-string>
      * }>
      *
      * @return array
@@ -28,9 +28,9 @@ final class ScraperDataProvider
     }
 
     /**
-     * @psalm-return array<int, array{
-     *     arguments: array<int, array<int, string>>,
-     *     expected: array<string, array<int, string>>
+     * @psalm-return non-empty-array<array{
+     *     arguments: non-empty-list<non-empty-list<non-empty-string>>,
+     *     expected: non-empty-array<non-empty-string, non-empty-list<non-empty-string>>
      * }>
      *
      * @return array
@@ -46,9 +46,9 @@ final class ScraperDataProvider
     }
 
     /**
-     * @psalm-return array<int, array{
-     *     arguments: array<int, string>,
-     *     expected: array<int, string>
+     * @psalm-return non-empty-list<array{
+     *     arguments: non-empty-list<non-empty-string>,
+     *     expected: non-empty-list<non-empty-string>
      * }>
      *
      * @return array
@@ -64,9 +64,9 @@ final class ScraperDataProvider
     }
 
     /**
-     * @psalm-return array<int, array{
-     *     arguments: array<int, array<int, string>>,
-     *     expected: array<string, array<int, string>>
+     * @psalm-return non-empty-list<array{
+     *     arguments: non-empty-list<non-empty-list<non-empty-string>>,
+     *     expected: non-empty-array<non-empty-string, non-empty-list<non-empty-string>>
      * }>
      *
      * @return array
@@ -82,9 +82,9 @@ final class ScraperDataProvider
     }
 
     /**
-     * @psalm-return array<int, array{
-     *     arguments: array<int, string>,
-     *     expected: array<int, string>
+     * @psalm-return non-empty-list<array{
+     *     arguments: non-empty-list<non-empty-string>,
+     *     expected: non-empty-list<non-empty-string>
      * }>
      *
      * @return array
@@ -100,9 +100,9 @@ final class ScraperDataProvider
     }
 
     /**
-     * @psalm-return array<int, array{
-     *     arguments: array<int, array<int, string>>,
-     *     expected: array<string, array<int, string>>
+     * @psalm-return non-empty-list<array{
+     *     arguments: non-empty-list<non-empty-list<non-empty-string>>,
+     *     expected: non-empty-array<non-empty-string, non-empty-list<non-empty-string>>
      * }>
      *
      * @return array
@@ -118,7 +118,7 @@ final class ScraperDataProvider
     }
 
     /**
-     * @psalm-return array<int, array{
+     * @psalm-return non-empty-list<array{
      *     argument: non-empty-string,
      *     expected: non-empty-string
      * }>

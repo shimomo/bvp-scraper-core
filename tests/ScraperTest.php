@@ -16,6 +16,7 @@ use Symfony\Component\DomCrawler\Crawler;
 final class ScraperTest extends TestCase
 {
     /**
+     * @psalm-suppress PropertyNotSetInConstructor
      * @psalm-var \Symfony\Component\BrowserKit\HttpBrowser
      *
      * @var \Symfony\Component\BrowserKit\HttpBrowser
@@ -27,6 +28,7 @@ final class ScraperTest extends TestCase
      *
      * @return void
      */
+    #[\Override]
     protected function setUp(): void
     {
         $html = <<<'HTML'
@@ -45,7 +47,7 @@ final class ScraperTest extends TestCase
             ->getMock();
 
         $scraperMock->method('request')
-            ->willReturnCallback(fn($method, $url) => new Crawler($html));
+            ->willReturnCallback(fn() => new Crawler($html));
 
         $this->scraperMock = $scraperMock;
     }
@@ -84,8 +86,8 @@ final class ScraperTest extends TestCase
     }
 
     /**
-     * @psalm-param array<int, string> $arguments
-     * @psalm-param array<int, string> $expected
+     * @psalm-param non-empty-list<non-empty-string> $arguments
+     * @psalm-param non-empty-list<non-empty-string> $expected
      * @psalm-return void
      *
      * @param array $arguments
@@ -101,8 +103,8 @@ final class ScraperTest extends TestCase
     }
 
     /**
-     * @psalm-param array<int, array<int, string>> $arguments
-     * @psalm-param array<string, array<int, string>> $expected
+     * @psalm-param non-empty-list<non-empty-list<non-empty-string>> $arguments
+     * @psalm-param non-empty-array<non-empty-string, non-empty-list<non-empty-string>> $expected
      * @psalm-return void
      *
      * @param array $arguments
@@ -118,8 +120,8 @@ final class ScraperTest extends TestCase
     }
 
     /**
-     * @psalm-param array<int, string> $arguments
-     * @psalm-param array<int, string> $expected
+     * @psalm-param non-empty-list<non-empty-string> $arguments
+     * @psalm-param non-empty-list<non-empty-string> $expected
      * @psalm-return void
      *
      * @param array $arguments
@@ -135,8 +137,8 @@ final class ScraperTest extends TestCase
     }
 
     /**
-     * @psalm-param array<int, array<int, string>> $arguments
-     * @psalm-param array<string, array<int, string>> $expected
+     * @psalm-param non-empty-list<non-empty-list<non-empty-string>> $arguments
+     * @psalm-param non-empty-array<non-empty-string, non-empty-list<non-empty-string>> $expected
      * @psalm-return void
      *
      * @param array $arguments
@@ -152,8 +154,8 @@ final class ScraperTest extends TestCase
     }
 
     /**
-     * @psalm-param array<int, string> $arguments
-     * @psalm-param array<int, string> $expected
+     * @psalm-param non-empty-list<non-empty-string> $arguments
+     * @psalm-param non-empty-list<non-empty-string> $expected
      * @psalm-return void
      *
      * @param array $arguments
@@ -169,8 +171,8 @@ final class ScraperTest extends TestCase
     }
 
     /**
-     * @psalm-param array<int, array<int, string>> $arguments
-     * @psalm-param array<string, array<int, string>> $expected
+     * @psalm-param non-empty-list<non-empty-list<non-empty-string>> $arguments
+     * @psalm-param non-empty-array<non-empty-string, non-empty-list<non-empty-string>> $expected
      * @psalm-return void
      *
      * @param array $arguments
