@@ -21,7 +21,7 @@ final class ScraperTest extends TestCase
      *
      * @var \Symfony\Component\BrowserKit\HttpBrowser
      */
-    private HttpBrowser $scraperMock;
+    private HttpBrowser $scraperStub;
 
     /**
      * @psalm-return void
@@ -42,14 +42,9 @@ final class ScraperTest extends TestCase
         </html>
         HTML;
 
-        $scraperMock = $this->getMockBuilder(HttpBrowser::class)
-            ->onlyMethods(['request'])
-            ->getMock();
-
-        $scraperMock->method('request')
-            ->willReturnCallback(fn() => new Crawler($html));
-
-        $this->scraperMock = $scraperMock;
+        $this->scraperStub = $this->createStub(HttpBrowser::class);
+        $this->scraperStub->method('request')
+            ->willReturn(new Crawler($html));
     }
 
     /**
@@ -97,7 +92,7 @@ final class ScraperTest extends TestCase
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByKeyProvider')]
     public function testFilterByKey(array $arguments, array $expected): void
     {
-        $crawler = $this->scraperMock->request('GET', 'https://en.wikipedia.org/wiki/PHP');
+        $crawler = $this->scraperStub->request('GET', 'https://en.wikipedia.org/wiki/PHP');
         $actual = Scraper::filterByKey($crawler, ...$arguments);
         $this->assertSame($expected, $actual);
     }
@@ -114,7 +109,7 @@ final class ScraperTest extends TestCase
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByKeysProvider')]
     public function testFilterByKeys(array $arguments, array $expected): void
     {
-        $crawler = $this->scraperMock->request('GET', 'https://en.wikipedia.org/wiki/PHP');
+        $crawler = $this->scraperStub->request('GET', 'https://en.wikipedia.org/wiki/PHP');
         $actual = Scraper::filterByKeys($crawler, ...$arguments);
         $this->assertSame($expected, $actual);
     }
@@ -131,7 +126,7 @@ final class ScraperTest extends TestCase
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByIdPrefixProvider')]
     public function testFilterByIdPrefix(array $arguments, array $expected): void
     {
-        $crawler = $this->scraperMock->request('GET', 'https://en.wikipedia.org/wiki/PHP');
+        $crawler = $this->scraperStub->request('GET', 'https://en.wikipedia.org/wiki/PHP');
         $actual = Scraper::filterByIdPrefix($crawler, ...$arguments);
         $this->assertSame($expected, $actual);
     }
@@ -148,7 +143,7 @@ final class ScraperTest extends TestCase
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByIdPrefixesProvider')]
     public function testFilterByIdPrefixes(array $arguments, array $expected): void
     {
-        $crawler = $this->scraperMock->request('GET', 'https://en.wikipedia.org/wiki/PHP');
+        $crawler = $this->scraperStub->request('GET', 'https://en.wikipedia.org/wiki/PHP');
         $actual = Scraper::filterByIdPrefixes($crawler, ...$arguments);
         $this->assertSame($expected, $actual);
     }
@@ -165,7 +160,7 @@ final class ScraperTest extends TestCase
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByClassPrefixProvider')]
     public function testFilterByClassPrefix(array $arguments, array $expected): void
     {
-        $crawler = $this->scraperMock->request('GET', 'https://en.wikipedia.org/wiki/PHP');
+        $crawler = $this->scraperStub->request('GET', 'https://en.wikipedia.org/wiki/PHP');
         $actual = Scraper::filterByClassPrefix($crawler, ...$arguments);
         $this->assertSame($expected, $actual);
     }
@@ -182,7 +177,7 @@ final class ScraperTest extends TestCase
     #[DataProviderExternal(ScraperDataProvider::class, 'filterByClassPrefixesProvider')]
     public function testFilterByClassPrefixes(array $arguments, array $expected): void
     {
-        $crawler = $this->scraperMock->request('GET', 'https://en.wikipedia.org/wiki/PHP');
+        $crawler = $this->scraperStub->request('GET', 'https://en.wikipedia.org/wiki/PHP');
         $actual = Scraper::filterByClassPrefixes($crawler, ...$arguments);
         $this->assertSame($expected, $actual);
     }
@@ -199,7 +194,7 @@ final class ScraperTest extends TestCase
     #[DataProviderExternal(ScraperDataProvider::class, 'filterXPath')]
     public function testFilterXPath(string $argument, string $expected): void
     {
-        $crawler = $this->scraperMock->request('GET', 'https://en.wikipedia.org/wiki/PHP');
+        $crawler = $this->scraperStub->request('GET', 'https://en.wikipedia.org/wiki/PHP');
         $actual = Scraper::filterXPath($crawler, $argument);
         $this->assertSame($expected, $actual);
     }
