@@ -9,20 +9,20 @@ on:
     - cron: '0 0 * * *'
   workflow_dispatch:
 
-permissions:
-  contents: read
-  id-token: write
-
 jobs:
   test:
     name: PHPUnit ${{ matrix.phpunit-version }} on PHP ${{ matrix.php-version }} (Ubuntu 24.04)
     runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      id-token: write
     strategy:
       matrix:
         php-version:
           - '8.2'
           - '8.3'
           - '8.4'
+          - '8.5'
         phpunit-version:
           - '10.1'
           - '11.1'
@@ -53,7 +53,7 @@ jobs:
         run: vendor/bin/phpunit --configuration=phpunit.xml.dist --coverage-xml=build/coverage-xml
 
       - name: Upload Code Coverage to Codecov
-        uses: codecov/codecov-action@5a1091511ad55cbe89839c7260b706298ca349f7
+        uses: codecov/codecov-action@671740ac38dd9b0130fbe1cec585b89eea48d3de
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: build/coverage-xml/coverage.xml
