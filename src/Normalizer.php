@@ -49,11 +49,10 @@ final class Normalizer
         }
 
         if (is_array($data)) {
-            return array_map(
-                fn(int|float|string|array|null $value): int|float|string|array|null
-                    => self::normalize($value, $options),
-                $data
-            );
+            $normalizer = fn(int|float|string|array|null $value): int|float|string|array|null
+                => self::normalize($value, $options);
+
+            return array_map($normalizer, $data);
         }
 
         $options = array_merge(
